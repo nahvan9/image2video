@@ -1,10 +1,9 @@
-from cmath import inf
 import tkinter as tk
 
 from tkinter import filedialog as fd    
 
-from src.view import AppView
-from src.model import AppModel
+from mvc.view import AppView
+from mvc.model import AppModel
 
 class AppController():
     def __init__(self):
