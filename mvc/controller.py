@@ -41,4 +41,7 @@ class AppController():
         self.model.fps = self.view.fps_text.get()
         self.model.basename = self.view.basename_text.get("1.0","end-1c")
         
-        self.model.generate()
+        if self.model.ready_for_video():
+            self.model.generate()
+        else:
+            input_warning = tk.messagebox.showwarning(title=None, message='Please make sure all inputs are valid!')

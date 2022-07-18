@@ -16,8 +16,16 @@ class AppModel():
         print(self.basename)
         print(self.basefolder)
         print(self.destfolder)
-        print(self.fps)
+        
 
+
+    def ready_for_video(self):
+        inputs = [self.basefolder, self.basename, self.destfolder]
+        if any(i=='' for i in inputs):
+            return False
+        else:
+            return True
+    
     def create_single_video(self):
         scene = os.path.basename(os.path.normpath(self.basefolder))
         self.images2video(
@@ -28,7 +36,7 @@ class AppModel():
         )
 
     def create_all_videos(self):
-        for subdir in glob.glob(f'{self.basefolder}\\*\\', recursive=False):
+        for subdir in glob.glob(f"{os.path.join(self.basefolder, f'*{os.path.sep}')}", recursive=False):
             scene = os.path.basename(os.path.normpath(subdir))
             self.images2video(
                 sourcefolder=subdir, 
