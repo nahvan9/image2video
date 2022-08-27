@@ -38,7 +38,7 @@ class AppController():
     def generate(self):
         self.model.basefolder = self.view.basefolder_text.get("1.0","end-1c")
         self.model.destfolder = self.view.destfolder_text.get("1.0","end-1c")
-        self.model.fps = self.view.fps_text.get()
+        self.model.fps = int(self.view.fps_text.get())
         self.model.basename = self.view.basename_text.get("1.0","end-1c")
         
         if self.model.ready_for_video():

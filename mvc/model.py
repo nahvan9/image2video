@@ -9,14 +9,14 @@ class AppModel():
         self.basename = basename
         self.basefolder = basefolder
         self.destfolder = destfolder
-        self.fps = fps
+        self.fps = int(fps)
 
 
     def generate(self):
-        self.create_all_videos()
-        # print(self.basename)
-        # print(self.basefolder)
-        # print(self.destfolder)
+        self.create_single_video()
+        print(self.basename)
+        print(self.basefolder)
+        print(self.destfolder)
         
 
 
@@ -30,10 +30,10 @@ class AppModel():
     def create_single_video(self):
         scene = os.path.basename(os.path.normpath(self.basefolder))
         self.images2video(
-            sourcefolder=self.basefolder, 
+            sourceFolder=self.basefolder, 
             filename=f'{self.basename}_{scene}', 
             fps=self.fps, 
-            destfolder=self.destfolder
+            destFolder=self.destfolder
         )
 
     def create_all_videos(self):
@@ -49,7 +49,7 @@ class AppModel():
     def images2video(self, sourceFolder, destFolder, filename, fps):
         images = []
         videoDest = os.path.join(destFolder, f'{filename}.avi')
-        for img in glob.glob(f'{sourceFolder}*.png'):
+        for img in glob.glob(os.path.join(sourceFolder, '*.png')):
             images.append(os.path.join(sourceFolder, img))
         
         frame = cv2.imread(images[0])
