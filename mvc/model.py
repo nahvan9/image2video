@@ -13,9 +13,10 @@ class AppModel():
 
 
     def generate(self):
-        print(self.basename)
-        print(self.basefolder)
-        print(self.destfolder)
+        self.create_all_videos()
+        # print(self.basename)
+        # print(self.basefolder)
+        # print(self.destfolder)
         
 
 
