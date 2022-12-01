@@ -7,8 +7,8 @@ class AppView(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title('Image to Video Generator')
-        self.geometry('600x300')
-        self.minsize(600, 300)
+        self.geometry('1200x300')
+        self.minsize(1200, 300)
         self.resizable(False, True)
         
         # self.columnconfigure(0, weight=1)
@@ -30,8 +30,8 @@ class AppView(tk.Tk):
         self.basefolderVar = tk.StringVar()
         self.destfolderVar = tk.StringVar()
         
-        self.basefolder_text = tk.Text(self.frame, height=1, width=50)
-        self.destfolder_text = tk.Text(self.frame, height=1, width=50)
+        self.basefolder_text = tk.Text(self.frame, height=1, width=100)
+        self.destfolder_text = tk.Text(self.frame, height=1, width=100)
         self.fps_text = tk.Spinbox(self.frame, width=5)
         self.basename_text = tk.Text(self.frame, height=1, width=30)
         
