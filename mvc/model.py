@@ -12,15 +12,28 @@ class AppModel():
         self.fps = int(fps)
 
 
-    def generate(self):
+    def generateSingle(self):
         self.create_single_video()
-        print(self.basename)
-        print(self.basefolder)
-        print(self.destfolder)
+        # Debug
+        # print(self.basename)
+        # print(self.basefolder)
+        # print(self.destfolder)
         
+    def generateMultiple(self):
+        self.create_all_videos
 
 
-    def ready_for_video(self):
+# Consolidate these into a file/input check, and add specific checks for 
+# single/multi video generation. 
+
+    def ready_for_single_video(self):
+        inputs = [self.basefolder, self.basename, self.destfolder]
+        if any(i=='' for i in inputs):
+            return False
+        else:
+            return True
+    
+    def ready_for_multi_video(self):
         inputs = [self.basefolder, self.basename, self.destfolder]
         if any(i=='' for i in inputs):
             return False

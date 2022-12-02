@@ -7,8 +7,8 @@ class AppView(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title('Image to Video Generator')
-        self.geometry('1200x300')
-        self.minsize(1200, 300)
+        self.geometry('600x300')
+        self.minsize(600, 300)
         self.resizable(False, True)
         
         # self.columnconfigure(0, weight=1)
@@ -30,15 +30,18 @@ class AppView(tk.Tk):
         self.basefolderVar = tk.StringVar()
         self.destfolderVar = tk.StringVar()
         
-        self.basefolder_text = tk.Text(self.frame, height=1, width=100)
-        self.destfolder_text = tk.Text(self.frame, height=1, width=100)
+        self.basefolder_text = tk.Text(self.frame, height=1, width=50)
+        self.basefolder_text.config(xscrollcommand=True)
+        self.destfolder_text = tk.Text(self.frame, height=1, width=50)
+        self.destfolder_text.config(xscrollcommand=True)
         self.fps_text = tk.Spinbox(self.frame, width=5)
         self.basename_text = tk.Text(self.frame, height=1, width=30)
         
         self.basefolderbtn = ttk.Button(self.frame, text='Select')
         self.destfolderbtn = ttk.Button(self.frame, text='Select')
-        self.runbtn = ttk.Button(self.frame, text='Generate!')
-        
+        self.runSingle_btn = ttk.Button(self.frame, text='Generate Single', width=15)
+        self.runMulti_btn  = ttk.Button(self.frame, text='Generate Multi', width=15)
+
         self.label1.grid(column=0, row=0, padx=(10, 0), pady=10, sticky='E')
         self.label2.grid(column=0, row=1, padx=(10, 0), pady=10, sticky='E')
         self.label3.grid(column=0, row=2, padx=(10, 0), pady=10, sticky='E')
@@ -51,8 +54,8 @@ class AppView(tk.Tk):
         
         self.basefolderbtn.grid(column=2, row=0, padx=(0, 10), pady=10, sticky='W')
         self.destfolderbtn.grid(column=2, row=1, padx=(0, 10), pady=10, sticky='W')
-        self.runbtn.grid(column=1, row=4, padx=5, pady=10)
-        
+        self.runSingle_btn.grid(column=1, row=4, padx=(100, 0), pady=10, sticky='W')
+        self.runMulti_btn.grid(column=1, row=4, padx=(0, 100), pady=10, sticky='E')
         
         
         
