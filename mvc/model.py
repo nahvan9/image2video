@@ -20,7 +20,7 @@ class AppModel():
         # print(self.destfolder)
         
     def generateMultiple(self):
-        self.create_all_videos
+        self.create_all_videos()
 
 
 # Consolidate these into a file/input check, and add specific checks for 
@@ -34,6 +34,7 @@ class AppModel():
             return True
     
     def ready_for_multi_video(self):
+        return True
         inputs = [self.basefolder, self.basename, self.destfolder]
         if any(i=='' for i in inputs):
             return False
@@ -53,10 +54,10 @@ class AppModel():
         for subdir in glob.glob(f"{os.path.join(self.basefolder, f'*{os.path.sep}')}", recursive=False):
             scene = os.path.basename(os.path.normpath(subdir))
             self.images2video(
-                sourcefolder=subdir, 
+                sourceFolder=os.path.dirname(subdir), 
                 filename=f'{self.basename}_{scene}', 
                 fps=self.fps, 
-                destfolder=self.destfolder
+                destFolder=self.destfolder
             )
 
     def images2video(self, sourceFolder, destFolder, filename, fps):

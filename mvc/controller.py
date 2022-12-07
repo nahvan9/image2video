@@ -11,10 +11,6 @@ class AppController():
         self.view = AppView()
         
         self.set_commands()
-        
-        
-        
-        
         self.view.mainloop()
         
     def set_commands(self):
@@ -43,7 +39,6 @@ class AppController():
         self.model.destfolder = self.view.destfolder_text.get("1.0","end-1c")
         self.model.fps = int(self.view.fps_text.get())
         self.model.basename = self.view.basename_text.get("1.0","end-1c")
-        
         if self.model.ready_for_single_video():
             self.model.generateSingle()
         else:
@@ -55,7 +50,7 @@ class AppController():
         self.model.fps = int(self.view.fps_text.get())
         self.model.basename = self.view.basename_text.get("1.0","end-1c")
         
-        if self.model.ready_for_multi_video():
-            self.model.generateMultiple()
-        else:
-            input_warning = tk.messagebox.showwarning(title=None, message='Please make sure all inputs are valid!')
+        # if self.model.ready_for_multi_video():
+        self.model.generateMultiple()
+        # else:
+            # input_warning = tk.messagebox.showwarning(title=None, message='Please make sure all inputs are valid!')
