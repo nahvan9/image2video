@@ -50,7 +50,7 @@ class AppController():
         self.model.fps = int(self.view.fps_text.get())
         self.model.basename = self.view.basename_text.get("1.0","end-1c")
         
-        # if self.model.ready_for_multi_video():
-        self.model.generateMultiple()
-        # else:
-            # input_warning = tk.messagebox.showwarning(title=None, message='Please make sure all inputs are valid!')
+        if self.model.ready_for_multi_video():
+            self.model.generateMultiple()
+        else:
+            input_warning = tk.messagebox.showwarning(title=None, message='Please make sure all inputs are valid!')

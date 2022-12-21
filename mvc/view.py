@@ -9,7 +9,7 @@ class AppView(tk.Tk):
         self.title('Image to Video Generator')
         self.geometry('600x300')
         self.minsize(600, 300)
-        self.resizable(False, True)
+        self.resizable(False, False)
         
         # self.columnconfigure(0, weight=1)
         # self.rowconfigure(0, weight=1)

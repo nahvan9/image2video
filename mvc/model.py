@@ -14,11 +14,7 @@ class AppModel():
 
     def generateSingle(self):
         self.create_single_video()
-        # Debug
-        # print(self.basename)
-        # print(self.basefolder)
-        # print(self.destfolder)
-        
+
     def generateMultiple(self):
         self.create_all_videos()
 
