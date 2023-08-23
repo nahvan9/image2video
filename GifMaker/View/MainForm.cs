@@ -6,5 +6,6 @@ namespace GifMaker.View
         {
             InitializeComponent();
         }
+
     }
 }
